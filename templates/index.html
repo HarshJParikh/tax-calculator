@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>California Income Tax Calculator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>California Income Tax Calculator</h1>
+        <form method="post" action="/">
+            <label for="salary">Enter your annual base salary:</label>
+            <input type="number" id="salary" name="salary" required>
+            <button type="submit">Calculate Tax</button>
+        </form>
+        {% if tax_due is not none %}
+        <div class="results">
+            <h2>Results</h2>
+            <p>Your salary: ${{ salary }}</p>
+            <p>Calculated tax: ${{ tax_due }}</p>
+            <p>Net income after tax: ${{ net_income }}</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
