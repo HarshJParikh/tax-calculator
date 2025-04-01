@@ -16,12 +16,11 @@ def calculate_tax_and_net(salary):
         (float("inf"), 0.123)
     ]
     previous_limit = 0
-    
-    for limit, rate in brackets:
-        if salary <= 0:
-            return 0.0, 0.0
+    if salary <= 0:
+        return 0.0, 0.0
 
-        elif salary > limit:
+    for limit, rate in brackets:
+        if salary > limit:
             taxable_income = limit - previous_limit
         else:
             taxable_income = salary - previous_limit
